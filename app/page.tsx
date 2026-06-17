@@ -243,7 +243,7 @@ export default function Home() {
   // 计算当前分类的每个位置上对应的 left 值
   const wideRow = WIDE_OFFSETS[cur.id]!;
   const narrowRow = NARROW_OFFSETS[cur.id]!;
-  const calcLeft = (i: number) => narrowRow[i] + (wideRow[i] - narrowRow[i]) * ratio;
+  const calcLeft = (i: number) => narrowRow[i]! + (wideRow[i]! - narrowRow[i]!) * ratio;
 
   return (
     <main className="bg-[#1c1c1c] min-h-screen text-white relative select-none">
