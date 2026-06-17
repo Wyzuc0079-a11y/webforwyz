@@ -2,10 +2,23 @@
 
 import React, { useRef, Suspense, forwardRef, useMemo } from "react";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
-import { Group, Mesh, MeshBasicMaterial, Vector3 } from "three";
+import { Group, Mesh, MeshBasicMaterial, Vector3, NoToneMapping } from "three";
 import { OBJLoader } from "three-stdlib";
 
 const STEP = 1 / 6; 
+
+type SceneSection = {
+  id: string;
+  modelPath: string;
+};
+
+export type CanvasUiState = {
+  index: number;
+  titleAlpha: number;
+  btnAlpha: number;
+  projectedY: number;
+  edgeOffsets: number[];
+};
 
 function getLetterState(p: number, idx: number) {
   p = Math.min(Math.max(p, 0), 1);
@@ -23,9 +36,9 @@ function getLetterState(p: number, idx: number) {
       titleAlpha = uiRatio; btnAlpha = uiRatio;
     }
   } else if (p > 0.7) {
-    const outRatio = (p - 0.7) / 0.3; 
+    const outRatio = (p - 0.7) / 0.3;
     x = -0.75; scale = 0.35;
-    rotationY = - (Math.PI / 6) - (Math.PI / 6) * outRatio; y = 0 + outRatio * 6.0; 
+    rotationY = - (Math.PI / 6) - (Math.PI / 6) * outRatio; y = 0 + outRatio * 6.0;
     const fastOut = Math.min(outRatio / 0.5, 1); 
     titleAlpha = 1 - fastOut; btnAlpha = 1 - fastOut;
   }
@@ -126,7 +139,15 @@ const LetterModel = forwardRef<Group, { modelPath: string }>((props, ref) => {
 });
 LetterModel.displayName = "LetterModel";
 
-function FrameController({ t, setUiState, sections }: { t: number; setUiState: (state: any) => void; sections: any[] }) {
+function FrameController({
+  t,
+  setUiState,
+  sections,
+}: {
+  t: number;
+  setUiState: (state: CanvasUiState) => void;
+  sections: SceneSection[];
+}) {
   const refs = useRef<(Group | null)[]>([]);
   const { camera, size } = useThree(); 
   const tempVec = useRef(new Vector3()).current;
@@ -191,7 +212,7 @@ function FrameController({ t, setUiState, sections }: { t: number; setUiState: (
 
           tempVec.set(-0.75 + rotatedX, 0, rotatedZ);
           tempVec.project(camera);
-          
+
           const pX = ((tempVec.x + 1) / 2) * 100;
           if (pX > maxProjectedX) {
             maxProjectedX = pX;
@@ -206,6 +227,17 @@ function FrameController({ t, setUiState, sections }: { t: number; setUiState: (
         const currentPadding = profile.paddingOffsets[i] || 4.0;
         edgeOffsets[i] = Math.max(screenCenterX + 5, maxProjectedX + stageOffset + currentPadding);
       });
+
+      // 安全距离：保留各行形状差异，整体向右平移
+      // 找到所有行中最小的 left 值，如果小于安全阈值，整体平移
+      const SAFETY_MIN = 50; // ▲ 最小安全距离阈值。数字越大按钮整体越靠右
+      const minOffset = Math.min(...edgeOffsets);
+      if (minOffset < SAFETY_MIN) {
+        const shift = SAFETY_MIN - minOffset;
+        for (let i = 0; i < edgeOffsets.length; i++) {
+          edgeOffsets[i] += shift;
+        }
+      }
     }
 
     setUiState({ 
@@ -228,12 +260,20 @@ function FrameController({ t, setUiState, sections }: { t: number; setUiState: (
   );
 }
 
-export default function CanvasScene({ t, setUiState, sections }: { t: number; setUiState: (state: any) => void; sections: any[] }) {
+export default function CanvasScene({
+  t,
+  setUiState,
+  sections,
+}: {
+  t: number;
+  setUiState: (state: CanvasUiState) => void;
+  sections: SceneSection[];
+}) {
   return (
     <Canvas 
       camera={{ position: [0, 0, 5.5], fov: 45 }} 
       style={{ background: "#1c1c1c" }} 
-      gl={{ antialias: true }}
+      gl={{ antialias: true, toneMapping: NoToneMapping }}
       dpr={[1, 2]}
     >
       <FrameController t={t} setUiState={setUiState} sections={sections} />

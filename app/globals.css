@@ -3,13 +3,23 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* 字号系统 ── 单位 px，001 最大，008 最小 */
+  --fs-001: 60px;   /* 极大标题 BOOK DESIGN */
+--fs-002: 48px;   /* 大标题 */
+--fs-003: 32px;   /* 中标题 */
+--fs-004: 24px;   /* 小标题 */
+--fs-005: 18px;   /* 正文，项目名称 */
+--fs-006: 14px;   /* 小字 */
+--fs-007: 12px;   /* 注释，导航按钮 */
+--fs-008: 10px;   /* 最小字 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +27,10 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+html {
+
 }
 
 body {

@@ -90,12 +90,7 @@ export default function SpecimenCanvas({ modelPath, projects, onProjectClick }: 
       obj.traverse((child) => {
         if ((child as THREE.Mesh).isMesh) {
           const mesh = child as THREE.Mesh;
-          mesh.material = new THREE.MeshBasicMaterial({ color: 0xffffff }); 
-
-          const wireframeGeom = new THREE.WireframeGeometry(mesh.geometry);
-          const wireframeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.12 });
-          const wireframe = new THREE.LineSegments(wireframeGeom, wireframeMat);
-          mesh.add(wireframe);
+          mesh.material = new THREE.MeshBasicMaterial({ color: 0xffffff });
         }
       });
 
@@ -104,7 +99,7 @@ export default function SpecimenCanvas({ modelPath, projects, onProjectClick }: 
 
       const validLabels: StaticLabel[] = [];
 
-      projects.forEach((project, i) => {
+      projects.forEach((project) => {
         const customPos = project.ballPos || { x: 0, y: 0, z: 0 };
         const rawPos = new THREE.Vector3(customPos.x, customPos.y, customPos.z);
 
@@ -198,7 +193,7 @@ export default function SpecimenCanvas({ modelPath, projects, onProjectClick }: 
         container.removeChild(canvasEl);
       }
     };
-  }, [modelPath]);
+  }, [modelPath, projects]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = containerRef.current?.getBoundingClientRect();
