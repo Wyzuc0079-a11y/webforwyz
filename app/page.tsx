@@ -3,40 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { CATEGORIES } from "./portfolioContent";
+import { HOME_SECTIONS, getLetterSuffix, getProjectDetailUrl, type OffsetRow } from "./homeConfig";
 import type { CanvasUiState } from "./CanvasScene";
 import { useLanguage } from "./lib/i18n";
 
 const CanvasScene = dynamic(() => import("./CanvasScene"), { ssr: false });
 
-const SECTIONS = [
-  { id: "bookdesign", title: "BOOK DESIGN", modelPath: "/models/PORTFLIO-B.obj", projects: ["Project 01", "Project 02", "Project 03", "Project 04"] },
-  { id: "event", title: "EVENTS", modelPath: "/models/PORTFLIO-E.obj", projects: ["Event 01", "Event 02", "Event 03"] },
-  { id: "studio", title: "STUDIO ITSELF", modelPath: "/models/PORTFLIO-S.obj", projects: ["Studio 01", "Studio 02", "Studio 03"] },
-  { id: "graphic", title: "GRAPHIC DESIGN", modelPath: "/models/PORTFLIO-G.obj", projects: ["凬凬展", "Graphic 02", "Graphic 03", "「石の裏を覗く」"] },
-  { id: "typography", title: "TYPOGRAPHY", modelPath: "/models/PORTFLIO-T.obj", projects: ["Type 01", "Type 02", "Type 03"] },
-  { id: "other", title: "OTHER", modelPath: "/models/PORTFLIO-O.obj", projects: ["Other 01", "Other 02", "Other 03"] }
-];
-
+const SECTIONS = HOME_SECTIONS;
 const STEP = 1 / SECTIONS.length;
 
 function getLetterFolderSuffix(sectionId: string): string {
-  switch (sectionId) {
-    case "bookdesign": return "b";
-    case "event": return "e";
-    case "studio": return "s";
-    case "graphic": return "g";
-    case "typography": return "t";
-    case "other": return "o";
-    default: return "b";
-  }
-}
-
-function getProjectDetailUrl(sectionId: string, projectIndex: number): string {
-  const category = CATEGORIES.find((item) => item.key === sectionId);
-  if (!category) return "/letter-b/bookdesign-project01";
-  const number = String(projectIndex + 1).padStart(2, "0");
-  return `/letter-${category.routeSuffix}/${category.detailPrefix}-project${number}`;
+  return getLetterSuffix(sectionId);
 }
 
 function BottomFooter() {
@@ -106,7 +83,7 @@ function BottomFooter() {
 
 export default function Home() {
   const router = useRouter();
-  const { t: langT } = useLanguage(); // 语言翻译函数
+  const { lang, t: langT } = useLanguage(); // 语言翻译函数
   const [t, setT] = useState(0);
   const raf = useRef<number | null>(null);
   const [winWidth, setWinWidth] = useState(1920); // 记录屏幕宽度，用于按钮定位
@@ -212,30 +189,14 @@ export default function Home() {
   const letterSuffix = getLetterFolderSuffix(cur.id);
 
   // =========================================================================
-  // 按钮位置单独调节面板（每个分类单独设置）
-  //
-  // 每个数组从左到右依次为：
-  //   [标题, 项目1, 项目2, 项目3, 项目4(如果没有则不填), MORE CASES]
-  // WIDE_OFFSETS  → 宽屏(≥1920px)  NARROW_OFFSETS → 窄屏(≤768px)
-  // 数字 = left 百分比，越大越靠右，中间宽度自动平滑过渡。
+  // 按钮位置从 homeConfig.ts 读取
   // =========================================================================
-  type OffsetRow = [number, number, number, number, number, number?]; // [标题, p1, p2, p3, 可选p4, more]
-  const WIDE_OFFSETS: Record<string, OffsetRow> = {
-    bookdesign:  [52, 48, 48, 48, 48, 52],
-    event:       [52, 44, 44, 44.5,       51.5],
-    studio:      [58, 50, 50, 50,       55],
-    graphic:     [57, 48, 48.1, 48, 47.5, 55],
-    typography:  [53, 46.5, 46.2, 46,       50],
-    other:       [58, 48, 48.5, 48.5,       53],
-  };
-  const NARROW_OFFSETS: Record<string, OffsetRow> = {
-    bookdesign:  [56, 56, 56, 56, 52, 56],
-    event:       [56, 50, 56, 50,       61],
-    studio:      [64, 56, 60, 56,       59],
-    graphic:     [68, 58, 62, 58, 53, 63],
-    typography:  [56, 40, 47, 46,       50],
-    other:       [68, 58, 56, 55,       60],
-  };
+  const WIDE_OFFSETS: Record<string, OffsetRow> = {};
+  const NARROW_OFFSETS: Record<string, OffsetRow> = {};
+  HOME_SECTIONS.forEach((s) => {
+    WIDE_OFFSETS[s.id] = s.wideOffsets;
+    NARROW_OFFSETS[s.id] = s.narrowOffsets;
+  });
   const WIDE_WIDTH = 1920;
   const NARROW_WIDTH = 768;
   const clamped = Math.min(Math.max(winWidth, NARROW_WIDTH), WIDE_WIDTH);
@@ -341,7 +302,7 @@ export default function Home() {
           className="fixed z-40 inset-0 pointer-events-none"
           style={{ opacity: uiState.btnAlpha }}
         >
-          {cur.projects.map((p, i) => {
+          {cur.projectPages.map((page, i) => {
             // calcLeft(i+1) 取项目按钮的位置（索引0是标题，项目从1开始）
             const shapeDiff = uiState.edgeOffsets ? uiState.edgeOffsets[i] - 46 : 0;
             const currentLeft = calcLeft(i + 1) + shapeDiff;
@@ -360,7 +321,7 @@ export default function Home() {
                 }}
                 className="fixed pointer-events-auto text-white/70 hover:text-white hover:translate-x-2 font-light tracking-wide py-1 text-left whitespace-nowrap"
               >
-                {p}
+                {page.titles[lang]}
               </button>
             );
           })}
@@ -372,7 +333,7 @@ export default function Home() {
             style={{
               fontSize: "var(--fs-007)",
               left: `${calcLeft(wideRow.length - 1)}%`,
-              top: `${uiState.projectedY + 2 + (cur.projects.length * 4.5)}%`,
+              top: `${uiState.projectedY + 2 + (cur.projectPages.length * 4.5)}%`,
               transition: "left 0.12s ease-out, opacity 0.2s ease-out",
             }}
             className="fixed pointer-events-auto text-white/40 hover:text-white transition-all duration-300 tracking-wider pt-2 border-t border-white/10 text-left cursor-pointer"
