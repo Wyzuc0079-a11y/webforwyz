@@ -13,7 +13,7 @@ const SECTIONS = [
   { id: "bookdesign", title: "BOOK DESIGN", modelPath: "/models/PORTFLIO-B.obj", projects: ["Project 01", "Project 02", "Project 03", "Project 04"] },
   { id: "event", title: "EVENTS", modelPath: "/models/PORTFLIO-E.obj", projects: ["Event 01", "Event 02", "Event 03"] },
   { id: "studio", title: "STUDIO ITSELF", modelPath: "/models/PORTFLIO-S.obj", projects: ["Studio 01", "Studio 02", "Studio 03"] },
-  { id: "graphic", title: "GRAPHIC DESIGN", modelPath: "/models/PORTFLIO-G.obj", projects: ["Graphic 01", "Graphic 02", "Graphic 03", "「石の裏を覗く」"] },
+  { id: "graphic", title: "GRAPHIC DESIGN", modelPath: "/models/PORTFLIO-G.obj", projects: ["凬凬展", "Graphic 02", "Graphic 03", "「石の裏を覗く」"] },
   { id: "typography", title: "TYPOGRAPHY", modelPath: "/models/PORTFLIO-T.obj", projects: ["Type 01", "Type 02", "Type 03"] },
   { id: "other", title: "OTHER", modelPath: "/models/PORTFLIO-O.obj", projects: ["Other 01", "Other 02", "Other 03"] }
 ];
