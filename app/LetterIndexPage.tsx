@@ -21,9 +21,9 @@ export default function LetterIndexPage({ category, navAccentColor }: LetterInde
     () =>
       category.projects.map((project) => ({
         ...project,
-        name: formatTitle(project.name),
+        name: project.titles ? project.titles[lang as "cn" | "en" | "jp"] : formatTitle(project.name),
       })),
-    [category.projects],
+    [category.projects, lang],
   );
 
   return (

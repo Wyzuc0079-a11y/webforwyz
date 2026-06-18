@@ -3,6 +3,7 @@ export type ProjectItem = {
   name: string;
   thumb: string;
   ballPos: { x: number; y: number; z: number };
+  titles?: { cn: string; en: string; jp: string };
 };
 
 export type PortfolioCategory = {
@@ -46,6 +47,7 @@ function makeProjects(prefix: string, letter: string, label: string): ProjectIte
       name: `${label} ${letter}${index + 1}`,
       thumb: `/thumbs/${letter.toLowerCase()}${index + 1}.jpg`,
       ballPos,
+      titles: { cn: `${label} ${letter}${index + 1}`, en: `${label} ${letter}${index + 1}`, jp: `${label} ${letter}${index + 1}` },
     };
   });
 }
@@ -64,21 +66,21 @@ export const CATEGORIES: PortfolioCategory[] = [
     detailLabel: "BOOK DESIGN // DETAILED REPORT",
     detailBody: "通过独立物理分层进行的内容解耦。在脱离了主大厅滚轴宏观控制后，每一个落地的平面排版设计都将在这里以最纯粹、安稳的形式展开深入观察。",
     projects: [
-      { id: "bookdesign-project01", name: "『感覚斜行』", thumb: "/thumbs/b1.jpg", ballPos: DEFAULT_BALL_POSITIONS[0] },
-      { id: "bookdesign-project02", name: "『私は』", thumb: "/thumbs/b2.jpg", ballPos: DEFAULT_BALL_POSITIONS[1] },
-      { id: "bookdesign-project03", name: "『落とし物』", thumb: "/thumbs/b3.jpg", ballPos: DEFAULT_BALL_POSITIONS[2] },
-      { id: "bookdesign-project04", name: "『生活者工房』令和四年", thumb: "/thumbs/b4.jpg", ballPos: DEFAULT_BALL_POSITIONS[3] },
-      { id: "bookdesign-project05", name: "『日本酒の話』", thumb: "/thumbs/b5.jpg", ballPos: DEFAULT_BALL_POSITIONS[4] },
-      { id: "bookdesign-project06", name: "『凬々展』記録冊子", thumb: "/thumbs/b6.jpg", ballPos: DEFAULT_BALL_POSITIONS[5] },
-      { id: "bookdesign-project07", name: "『石の裏を覗く』記録冊子", thumb: "/thumbs/b7.jpg", ballPos: DEFAULT_BALL_POSITIONS[6] },
-      { id: "bookdesign-project08", name: "『字』", thumb: "/thumbs/b8.jpg", ballPos: DEFAULT_BALL_POSITIONS[7] },
-      { id: "bookdesign-project09", name: "『良渚』", thumb: "/thumbs/b9.jpg", ballPos: DEFAULT_BALL_POSITIONS[8] },
-      { id: "bookdesign-project10", name: "『MYTHISTORY』", thumb: "/thumbs/b10.jpg", ballPos: DEFAULT_BALL_POSITIONS[9] },
-      { id: "bookdesign-project11", name: "『斬蛇』", thumb: "/thumbs/b11.jpg", ballPos: DEFAULT_BALL_POSITIONS[10] },
-      { id: "bookdesign-project12", name: "『掃』＆『黒』", thumb: "/thumbs/b12.jpg", ballPos: DEFAULT_BALL_POSITIONS[11] },
-      { id: "bookdesign-project13", name: "『环境、气候变动及经济模型与良渚的集落形态』、『绳文时代的意象 宗教与生活』", thumb: "/thumbs/b13.jpg", ballPos: DEFAULT_BALL_POSITIONS[12] },
-      { id: "bookdesign-project14", name: "Project 14", thumb: "/thumbs/b14.jpg", ballPos: DEFAULT_BALL_POSITIONS[13] },
-      { id: "bookdesign-project15", name: "Project 15", thumb: "/thumbs/b15.jpg", ballPos: DEFAULT_BALL_POSITIONS[14] },
+      { id: "bookdesign-project01", name: "『感覚斜行』", thumb: "/thumbs/b1.jpg", ballPos: DEFAULT_BALL_POSITIONS[0], titles: { cn: "『感覚斜行』", en: "Sensation Oblique", jp: "『感覚斜行』" } },
+      { id: "bookdesign-project02", name: "『私は』", thumb: "/thumbs/b2.jpg", ballPos: DEFAULT_BALL_POSITIONS[1], titles: { cn: "『私は』", en: "I am", jp: "『私は』" } },
+      { id: "bookdesign-project03", name: "『落とし物』", thumb: "/thumbs/b3.jpg", ballPos: DEFAULT_BALL_POSITIONS[2], titles: { cn: "『落とし物』", en: "Lost & Found", jp: "『落とし物』" } },
+      { id: "bookdesign-project04", name: "『生活者工房』令和四年", thumb: "/thumbs/b4.jpg", ballPos: DEFAULT_BALL_POSITIONS[3], titles: { cn: "『生活者工房』令和四年", en: "Seikatsusha Kobo 2022", jp: "『生活者工房』令和四年" } },
+      { id: "bookdesign-project05", name: "『日本酒の話』", thumb: "/thumbs/b5.jpg", ballPos: DEFAULT_BALL_POSITIONS[4], titles: { cn: "『日本酒の話』", en: "About Sake", jp: "『日本酒の話』" } },
+      { id: "bookdesign-project06", name: "『凬々展』記録冊子", thumb: "/thumbs/b6.jpg", ballPos: DEFAULT_BALL_POSITIONS[5], titles: { cn: "『凬凬展』记录册子", en: "KAZE² Record Booklet", jp: "『凬々展』記録冊子" } },
+      { id: "bookdesign-project07", name: "『石の裏を覗く』記録冊子", thumb: "/thumbs/b7.jpg", ballPos: DEFAULT_BALL_POSITIONS[6], titles: { cn: "『石の裏を覗く』记录册子", en: "Behind the Stone Booklet", jp: "『石の裏を覗く』記録冊子" } },
+      { id: "bookdesign-project08", name: "『字』", thumb: "/thumbs/b8.jpg", ballPos: DEFAULT_BALL_POSITIONS[7], titles: { cn: "『字』", en: "Character", jp: "『字』" } },
+      { id: "bookdesign-project09", name: "『良渚』", thumb: "/thumbs/b9.jpg", ballPos: DEFAULT_BALL_POSITIONS[8], titles: { cn: "『良渚』", en: "Liangzhu", jp: "『良渚』" } },
+      { id: "bookdesign-project10", name: "『MYTHISTORY』", thumb: "/thumbs/b10.jpg", ballPos: DEFAULT_BALL_POSITIONS[9], titles: { cn: "『MYTHISTORY』", en: "MYTHISTORY", jp: "『MYTHISTORY』" } },
+      { id: "bookdesign-project11", name: "『斬蛇』", thumb: "/thumbs/b11.jpg", ballPos: DEFAULT_BALL_POSITIONS[10], titles: { cn: "『斩蛇』", en: "Slaying the Serpent", jp: "『斬蛇』" } },
+      { id: "bookdesign-project12", name: "『掃』＆『黒』", thumb: "/thumbs/b12.jpg", ballPos: DEFAULT_BALL_POSITIONS[11], titles: { cn: "『扫』&『黑』", en: "Sweep & Black", jp: "『掃』＆『黒』" } },
+      { id: "bookdesign-project13", name: "『环境、气候变动及经济模型与良渚的集落形态』、『绳文时代的意象 宗教与生活』", thumb: "/thumbs/b13.jpg", ballPos: DEFAULT_BALL_POSITIONS[12], titles: { cn: "良渚与绳文", en: "Liangzhu & Jomon", jp: "良渚と縄文" } },
+      { id: "bookdesign-project14", name: "Project 14", thumb: "/thumbs/b14.jpg", ballPos: DEFAULT_BALL_POSITIONS[13], titles: { cn: "Project 14", en: "Project 14", jp: "Project 14" } },
+      { id: "bookdesign-project15", name: "Project 15", thumb: "/thumbs/b15.jpg", ballPos: DEFAULT_BALL_POSITIONS[14], titles: { cn: "Project 15", en: "Project 15", jp: "Project 15" } },
     ],
   },
   {
@@ -122,21 +124,21 @@ export const CATEGORIES: PortfolioCategory[] = [
     detailLabel: "GRAPHIC DESIGN // DETAILED REPORT",
     detailBody: "通过独立物理分层进行的内容解耦。在脱离了主大厅滚轴宏观控制后，每一个落地的版面秩序重建、图像解构与二维视觉传达设计，都将在这里以最纯粹、安稳的形式展开深入观察。",
     projects: [
-      { id: "graphic-project01", name: "Project G1", thumb: "/thumbs/g1.jpg", ballPos: DEFAULT_BALL_POSITIONS[0] },
-      { id: "graphic-project02", name: "Project G2", thumb: "/thumbs/g2.jpg", ballPos: DEFAULT_BALL_POSITIONS[1] },
-      { id: "graphic-project03", name: "Project G3", thumb: "/thumbs/g3.jpg", ballPos: DEFAULT_BALL_POSITIONS[2] },
-      { id: "graphic-project04", name: "「石の裏を覗く」", thumb: "/thumbs/g4.jpg", ballPos: DEFAULT_BALL_POSITIONS[3] },
-      { id: "graphic-project05", name: "Project G5", thumb: "/thumbs/g5.jpg", ballPos: DEFAULT_BALL_POSITIONS[4] },
-      { id: "graphic-project06", name: "Project G6", thumb: "/thumbs/g6.jpg", ballPos: DEFAULT_BALL_POSITIONS[5] },
-      { id: "graphic-project07", name: "Project G7", thumb: "/thumbs/g7.jpg", ballPos: DEFAULT_BALL_POSITIONS[6] },
-      { id: "graphic-project08", name: "Project G8", thumb: "/thumbs/g8.jpg", ballPos: DEFAULT_BALL_POSITIONS[7] },
-      { id: "graphic-project09", name: "Project G9", thumb: "/thumbs/g9.jpg", ballPos: DEFAULT_BALL_POSITIONS[8] },
-      { id: "graphic-project10", name: "Project G10", thumb: "/thumbs/g10.jpg", ballPos: DEFAULT_BALL_POSITIONS[9] },
-      { id: "graphic-project11", name: "Project G11", thumb: "/thumbs/g11.jpg", ballPos: DEFAULT_BALL_POSITIONS[10] },
-      { id: "graphic-project12", name: "Project G12", thumb: "/thumbs/g12.jpg", ballPos: DEFAULT_BALL_POSITIONS[11] },
-      { id: "graphic-project13", name: "Project G13", thumb: "/thumbs/g13.jpg", ballPos: DEFAULT_BALL_POSITIONS[12] },
-      { id: "graphic-project14", name: "Project G14", thumb: "/thumbs/g14.jpg", ballPos: DEFAULT_BALL_POSITIONS[13] },
-      { id: "graphic-project15", name: "Project G15", thumb: "/thumbs/g15.jpg", ballPos: DEFAULT_BALL_POSITIONS[14] },
+      { id: "graphic-project01", name: "凬凬展", thumb: "/thumbs/g1.jpg", ballPos: DEFAULT_BALL_POSITIONS[0], titles: { cn: "凬凬展", en: "KAZE²", jp: "凬々展" } },
+      { id: "graphic-project02", name: "Project G2", thumb: "/thumbs/g2.jpg", ballPos: DEFAULT_BALL_POSITIONS[1], titles: { cn: "Project G02", en: "Project G02", jp: "Project G02" } },
+      { id: "graphic-project03", name: "Project G3", thumb: "/thumbs/g3.jpg", ballPos: DEFAULT_BALL_POSITIONS[2], titles: { cn: "Project G03", en: "Project G03", jp: "Project G03" } },
+      { id: "graphic-project04", name: "「石の裏を覗く」", thumb: "/thumbs/g4.jpg", ballPos: DEFAULT_BALL_POSITIONS[3], titles: { cn: "「石の裏を覗く」", en: "Behind the Stone", jp: "「石の裏を覗く」" } },
+      { id: "graphic-project05", name: "Project G5", thumb: "/thumbs/g5.jpg", ballPos: DEFAULT_BALL_POSITIONS[4], titles: { cn: "Project G05", en: "Project G05", jp: "Project G05" } },
+      { id: "graphic-project06", name: "Project G6", thumb: "/thumbs/g6.jpg", ballPos: DEFAULT_BALL_POSITIONS[5], titles: { cn: "Project G06", en: "Project G06", jp: "Project G06" } },
+      { id: "graphic-project07", name: "Project G7", thumb: "/thumbs/g7.jpg", ballPos: DEFAULT_BALL_POSITIONS[6], titles: { cn: "Project G07", en: "Project G07", jp: "Project G07" } },
+      { id: "graphic-project08", name: "Project G8", thumb: "/thumbs/g8.jpg", ballPos: DEFAULT_BALL_POSITIONS[7], titles: { cn: "Project G08", en: "Project G08", jp: "Project G08" } },
+      { id: "graphic-project09", name: "Project G9", thumb: "/thumbs/g9.jpg", ballPos: DEFAULT_BALL_POSITIONS[8], titles: { cn: "Project G09", en: "Project G09", jp: "Project G09" } },
+      { id: "graphic-project10", name: "Project G10", thumb: "/thumbs/g10.jpg", ballPos: DEFAULT_BALL_POSITIONS[9], titles: { cn: "Project G10", en: "Project G10", jp: "Project G10" } },
+      { id: "graphic-project11", name: "Project G11", thumb: "/thumbs/g11.jpg", ballPos: DEFAULT_BALL_POSITIONS[10], titles: { cn: "Project G11", en: "Project G11", jp: "Project G11" } },
+      { id: "graphic-project12", name: "Project G12", thumb: "/thumbs/g12.jpg", ballPos: DEFAULT_BALL_POSITIONS[11], titles: { cn: "Project G12", en: "Project G12", jp: "Project G12" } },
+      { id: "graphic-project13", name: "Project G13", thumb: "/thumbs/g13.jpg", ballPos: DEFAULT_BALL_POSITIONS[12], titles: { cn: "Project G13", en: "Project G13", jp: "Project G13" } },
+      { id: "graphic-project14", name: "Project G14", thumb: "/thumbs/g14.jpg", ballPos: DEFAULT_BALL_POSITIONS[13], titles: { cn: "Project G14", en: "Project G14", jp: "Project G14" } },
+      { id: "graphic-project15", name: "Project G15", thumb: "/thumbs/g15.jpg", ballPos: DEFAULT_BALL_POSITIONS[14], titles: { cn: "Project G15", en: "Project G15", jp: "Project G15" } },
     ],
   },
   {
