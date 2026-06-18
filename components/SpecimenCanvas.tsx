@@ -241,21 +241,19 @@ export default function SpecimenCanvas({ modelPath, projects, onProjectClick }: 
 
       {hoveredProject && (
         <div
-          className="absolute z-40 pointer-events-none border border-white/10 bg-[#1c1c1c] p-1.5 rounded-sm shadow-2xl transition-all duration-150 ease-out overflow-hidden"
-          style={{ 
-            left: `${mousePos.x}px`, 
+          className="absolute z-40 pointer-events-none border border-white/10 bg-[#1c1c1c] rounded-sm shadow-2xl transition-all duration-150 ease-out overflow-hidden"
+          style={{
+            left: `${mousePos.x}px`,
             top: `${mousePos.y}px`,
             width: "140px",
-            height: "105px"
           }}
         >
-          <div className="w-full h-full bg-black/40 relative flex items-center justify-center">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-            <span className="text-[9px] text-white/40 tracking-wider text-center px-2 z-20">
-              [PREVIEW IMAGE]
-              <br />
-              {hoveredProject.name}
-            </span>
+          <div className="w-full relative flex items-center justify-center overflow-hidden">
+            <img
+              src={hoveredProject.thumb}
+              alt={hoveredProject.name}
+              className="w-full h-auto block"
+            />
           </div>
         </div>
       )}
