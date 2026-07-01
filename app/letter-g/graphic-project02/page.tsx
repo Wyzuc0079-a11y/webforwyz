@@ -18,9 +18,18 @@ export default function Project02PosterPage() {
       client: "TBD",
     },
     descriptions: {
-      cn: ["项目 G2 的详细设计说明。", "更多信息待补充。"],
-      en: ["Detailed description for Project G2.", "More information coming soon."],
-      jp: ["プロジェクトG2の詳細説明。", "詳細は追って追記予定。"],
+      cn: [
+        "参考了贝尔纳·布菲的风格制作的活动海报。",
+        "背后的红色图形由中国和欧洲的咒术书和占星书提取。"
+      ],
+      en: [
+        "Event poster inspired by the visual style of Bernard Buffet.",
+        "The red graphic elements in the background were derived from Chinese and European magical manuscripts, occult texts, and astrological books."
+      ],
+      jp: [
+        "ベルナール・ビュフェの作風を参照して制作したイベントポスター。",
+        "背景の赤い図像は、中国およびヨーロッパの呪術書、魔術書、占星術書から抽出した図版をもとに構成している。"
+      ],
     },
     mainPosters: [
       "/photo/g/p02/gp002-001.jpg",
