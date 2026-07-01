@@ -3,8 +3,8 @@ import "./globals.css";
 import ClientLayout from "../components/ClientLayout";
 
 export const metadata: Metadata = {
-  title: "WU Yizhou Portfolio",
-  description: "Personal portfolio of WU Yizhou.",
+  title: "ctww004",
+  description: "ctww004 portfolio.",
 };
 
 export default function RootLayout({

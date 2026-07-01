@@ -28,7 +28,7 @@ export default function EventDetailPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1c1c1c]/40 backdrop-blur-md border-b border-white/5 px-6 md:px-12">
         <div className="flex justify-between items-center h-20 max-w-7xl mx-auto">
           <div className="flex items-center cursor-pointer" onClick={() => router.push("/")}>
-            <img src="/logo.png" alt="WU Yizhou Logo" className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <img src="/logo.png" alt="ctww004 Logo" className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
           </div>
           {/* 一键返回到 2 级活动列表大厅 */}
           <button 

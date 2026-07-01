@@ -91,7 +91,7 @@ export default function LetterIndexPage({ category, navAccentColor }: LetterInde
           style={{ fontSize: "var(--fs-008)" }}
           className="relative z-20 w-full px-8 md:pl-16 text-white/10 tracking-[0.25em] text-left border-t border-white/5 pt-4 pointer-events-none uppercase"
         >
-          WU YIZHOU DESIGN LABORATORY · PROJECT METRICS ACTIVE
+          ctww004 · PROJECT METRICS ACTIVE
         </div>
 
       </div>

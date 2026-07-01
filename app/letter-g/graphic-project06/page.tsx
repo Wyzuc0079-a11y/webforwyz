@@ -9,22 +9,33 @@ export default function ProjectPosterPage() {
 
   const PROJECT_DATA = {
     theme: { accentColor: "#FF6B00" },
-    tags: ["海报设计 / POSTER", "VISUAL IDENTITY"],
+    tags: ["海报设计 / POSTER", "展会 / EXHIBITION", "传单 / FLYER"],
     meta: {
       titlePngSrc: "/photo/g/p06/title.png",
-      titles: { cn: "Project G06", en: "Project G06", jp: "Project G06" },
-      projectName: "Project G06",
+      titles: { cn: "ORAe 台北建筑建材及产品展", en: "ORAe, Taipei Building Show", jp: "ORAe, 台北建築建材及び産品展" },
+      projectName: "ORAe, Taipei",
       creationDate: "2025",
-      client: "TBD",
+      client: "ORAe",
+      clientLink: "https://orae.jp",
+      clients: { cn: "ORAe", en: "ORAe", jp: "ORAe" },
     },
     descriptions: {
-      cn: ["项目 G06 的详细设计说明。", "更多信息待补充。"],
-      en: ["Detailed description for Project G06.", "More information coming soon."],
-      jp: ["プロジェクトG06の詳細説明。", "詳細は追って追記予定。"],
+      cn: [
+        "ORAe的台北建築建材暨産品展传单。",
+        "内容从ORAe宣传册压缩至A3尺寸之内。台湾发行版本翻译/黄敏。"
+      ],
+      en: [
+        "Flyer for ORAe at the Taipei Architecture, Building Materials and Products Exhibition.",
+        "The content was condensed from the ORAE brochure and reformatted to fit within an A3 format. Taiwanese edition translated by Huang Min."
+      ],
+      jp: [
+        "ORAEの「台北建築建材暨産品展」向けフライヤー。",
+        "ORAEのパンフレット内容をA3判に収まるよう再編集・要約した。台湾版の翻訳は黄敏が担当。"
+      ],
     },
     mainPosters: [
-      "/photo/g/p06/gp06-001.png",
-      "/photo/g/p06/gp06-002.png",
+      "/photo/g/p06/gp006-001.png",
+      "/photo/g/p06/gp006-002.png",
     ],
     sketches: [
       { id: 1, src: "/photo/g/p06/detail-01.jpg", width: 180, rotate: -8, top: "20px", left: "5%" },
@@ -143,7 +154,14 @@ export default function ProjectPosterPage() {
               </div>
               <div className="flex justify-between">
                 <span className="opacity-40">CLIENT:</span>
-                <span className="text-white">{PROJECT_DATA.meta.client}</span>
+                <a
+                  href={PROJECT_DATA.meta.clientLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white text-right truncate max-w-[180px] hover:opacity-70 transition-opacity underline underline-offset-2 decoration-white/30"
+                >
+                  {PROJECT_DATA.meta.clients[lang]}
+                </a>
               </div>
             </div>
             <div className="leading-relaxed tracking-wider space-y-4 font-light text-neutral-300">

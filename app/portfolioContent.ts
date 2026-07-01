@@ -129,7 +129,7 @@ export const CATEGORIES: PortfolioCategory[] = [
       { id: "graphic-project03", name: "异乡人与摩托车旅行技艺-4600km", thumb: "/photo/g/p03/gp003-001.png", ballPos: DEFAULT_BALL_POSITIONS[2], titles: { cn: "异乡人与摩托车旅行技艺-4600km", en: "L'Étranger \nand the Motorcycle Journey Arts \n- 4600km", jp: "エトランゼとオートバイ旅行アーツ-4600km" } },
       { id: "graphic-project04", name: "「石の裏を覗く」", thumb: "/photo/g/p04/gp004-001.png", ballPos: DEFAULT_BALL_POSITIONS[3], titles: { cn: "「石の裏を覗く」", en: "Behind the Stone", jp: "「石の裏を覗く」" } },
       { id: "graphic-project05", name: "Project G5", thumb: "/photo/g/p05/gp005-001.png", ballPos: DEFAULT_BALL_POSITIONS[4], titles: { cn: "Project G05", en: "Project G05", jp: "Project G05" } },
-      { id: "graphic-project06", name: "Project G6", thumb: "/photo/g/p06/gp006-001.png", ballPos: DEFAULT_BALL_POSITIONS[5], titles: { cn: "Project G06", en: "Project G06", jp: "Project G06" } },
+      { id: "graphic-project06", name: "ORAe, Taipei", thumb: "/photo/g/p06/gp006-001.png", ballPos: DEFAULT_BALL_POSITIONS[5], titles: { cn: "ORAe 台北建筑建材及产品展", en: "ORAe, Taipei Building Show", jp: "ORAe, 台北建築建材及び産品展" } },
       { id: "graphic-project07", name: "Project G7", thumb: "/photo/g/p07/gp007-001.png", ballPos: DEFAULT_BALL_POSITIONS[6], titles: { cn: "Project G07", en: "Project G07", jp: "Project G07" } },
       { id: "graphic-project08", name: "Project G8", thumb: "/photo/g/p08/gp008-001.png", ballPos: DEFAULT_BALL_POSITIONS[7], titles: { cn: "Project G08", en: "Project G08", jp: "Project G08" } },
       { id: "graphic-project09", name: "Project G9", thumb: "/photo/g/p09/gp009-001.png", ballPos: DEFAULT_BALL_POSITIONS[8], titles: { cn: "Project G09", en: "Project G09", jp: "Project G09" } },

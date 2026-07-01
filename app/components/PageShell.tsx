@@ -65,7 +65,7 @@ export default function PageShell({
           >
             <img
               src="/logo.png"
-              alt="WU Yizhou Logo"
+              alt="ctww004 Logo"
               className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
             />
           </div>

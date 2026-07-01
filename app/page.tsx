@@ -25,14 +25,14 @@ function BottomFooter() {
           <div className="text-white/40 text-center md:text-left leading-relaxed font-light">
             {/* 版权主文字 ── 字号 007 注释级 */}
             <div style={{ fontSize: "var(--fs-007)" }}>
-              © 2026 WU YIZHOU. ALL RIGHTS RESERVED.
+              © 2026 ctww004. ALL RIGHTS RESERVED.
             </div>
             {/* 版权副文字 ── 字号 008 最小字 */}
             <div
               style={{ fontSize: "var(--fs-008)" }}
               className="text-white/25 mt-1"
             >
-              WU Yizhou · 保留所有权利 · 著作権所有
+              ctww004 · 保留所有权利 · 著作権所有
             </div>
           </div>
 
@@ -233,7 +233,7 @@ export default function Home() {
           <div className="flex items-center h-full">
             <img
               src="/logo.png"
-              alt="WU Yizhou Logo"
+              alt="ctww004 Logo"
               className="h-10 w-auto opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             />
