@@ -81,8 +81,6 @@ export const HOME_SECTIONS: SectionConfig[] = [
       { id: "project03", titles: { cn: "异乡人与摩托车旅行技艺-4600km", en: "L'Étranger \nand the Motorcycle Journey Arts \n- 4600km", jp: "エトランゼとオートバイ旅行アーツ-4600km" } },
       { id: "project04", titles: { cn: "「石の裏を覗く」", en: "Behind the Stone", jp: "「石の裏を覗く」" } },
     ],
-      { id: "project15", titles: { cn: "Project G15", en: "Project G15", jp: "Project G15" } },
-    ],
   },
   {
     id: "typography",
