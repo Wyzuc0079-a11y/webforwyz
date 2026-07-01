@@ -29,7 +29,6 @@ export default function LetterIndexPage({ category, navAccentColor }: LetterInde
   return (
     <PageShell
       backHref="/"
-      backLabel="BACK TO 3D GALLERY ←"
       navAccentColor={navAccentColor}
     >
       <div className="relative w-screen h-screen overflow-hidden pt-28 pb-12 flex flex-col justify-between">

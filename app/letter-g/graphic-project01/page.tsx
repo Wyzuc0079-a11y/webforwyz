@@ -74,7 +74,6 @@ export default function Project01PosterPage() {
   return (
     <PageShell
       backHref="/letter-g"
-      backLabel="BACK TO GRAPHIC ←"
       navAccentColor="#ffffff"
     >
       <div className="relative z-10 pt-32 pb-32 overflow-x-hidden">
@@ -157,7 +156,7 @@ export default function Project01PosterPage() {
             >
               <div className="flex justify-between">
                 <span className="opacity-40">PROJECT:</span>
-                <span className="text-white font-medium">{PROJECT_DATA.meta.titles[lang]}</span>
+                <span className="text-white font-medium text-right leading-snug">{PROJECT_DATA.meta.titles[lang]}</span>
               </div>
               <div className="flex justify-between">
                 <span className="opacity-40">DATE:</span>

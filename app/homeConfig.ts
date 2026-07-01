@@ -77,8 +77,8 @@ export const HOME_SECTIONS: SectionConfig[] = [
     narrowOffsets: [68, 58, 62, 58, 53, 63],
     projectPages: [
       { id: "project01", titles: { cn: "凬凬展", en: "KAZE²", jp: "凬々展" } },
-      { id: "project02", titles: { cn: "Project G02", en: "Project G02", jp: "Project G02" } },
-      { id: "project03", titles: { cn: "Project G03", en: "Project G03", jp: "Project G03" } },
+      { id: "project02", titles: { cn: "我们将如何生成，实践，记录咒术", en: "How Do We Generate, Practice, and Record Magic?", jp: "私たちはいかに呪術を、生成し、実践し、記録するのか" } },
+      { id: "project03", titles: { cn: "异乡人与摩托车旅行技艺-4600km", en: "L'Étranger \nand the Motorcycle Journey Arts \n- 4600km", jp: "エトランゼとオートバイ旅行アーツ-4600km" } },
       { id: "project04", titles: { cn: "「石の裏を覗く」", en: "Behind the Stone", jp: "「石の裏を覗く」" } },
     ],
   },

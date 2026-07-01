@@ -90,7 +90,6 @@ export default function Project04PosterPage() {
   return (
     <PageShell
       backHref="/letter-g"
-      backLabel="BACK TO GRAPHIC ←"
       navAccentColor="#ffffff"
     >
       <div className="relative z-10 pt-32 pb-32 overflow-x-hidden">

@@ -9,22 +9,31 @@ export default function Project03PosterPage() {
 
   const PROJECT_DATA = {
     theme: { accentColor: "#FF6B00" },
-    tags: ["海报设计 / POSTER", "VISUAL IDENTITY"],
+    tags: ["海报设计 / POSTER", "丝网印刷 / SILKSCREEN", "传单 / FLYER"],
     meta: {
       titlePngSrc: "/photo/g/p03/title.png",
-      titles: { cn: "Project G03", en: "Project G03", jp: "Project G03" },
-      projectName: "Project G3",
-      creationDate: "2025",
-      client: "TBD",
+      titles: { cn: "异乡人与摩托车旅行技艺-4600km", en: "L'Étranger \nand the Motorcycle Journey Arts \n- 4600km", jp: "エトランゼとオートバイ旅行アーツ-4600km" },
+      projectName: "エトランゼとオートバイ旅行アーツ-4600km",
+      creationDate: "2026.06.21, 29, 30",
+      clients: { cn: "杜鎔勋", en: "DU RONGXUN", jp: "杜鎔勲" },
+      clientLink: "https://www.instagram.com/du_rongxun?igsh=MXJxbGlza2VqOWY4Ng%3D%3D&utm_source=qr",
     },
     descriptions: {
-      cn: ["项目 G3 的详细设计说明。", "更多信息待补充。"],
-      en: ["Detailed description for Project G3.", "More information coming soon."],
-      jp: ["プロジェクトG3の詳細説明。", "詳細は追って追記予定。"],
+      cn: [
+        "杜鎔勋企划的talk live的宣传海报/传单。",
+        "使用Canon PRO-S1打印，仿古色80g打印用宣纸，活动名使用银色丝网印刷。"
+      ],
+      en: [
+        "Promotional poster and flyer for a talk event organized by Du Rongxun.",
+        "Printed using a Canon PRO-S1 printer on 80g antique-toned Xuan (rice) paper. The event title was produced with silver screen printing."
+      ],
+      jp: [
+        "杜鎔勲氏が企画したトークライブの告知ポスター・フライヤー。",
+        "Canon PRO-S1を使用して、仿古色の80g宣紙に印刷。イベントタイトル部分には銀色のシルクスクリーン印刷を施した。"
+      ],
     },
     mainPosters: [
       "/photo/g/p03/gp003-001.png",
-      "/photo/g/p03/gp003-002.png",
     ],
     sketches: [
       { id: 1, src: "/photo/g/p03/detail-01.jpg", width: 180, rotate: -8, top: "20px", left: "5%" },
@@ -59,7 +68,6 @@ export default function Project03PosterPage() {
   return (
     <PageShell
       backHref="/letter-g"
-      backLabel="BACK TO GRAPHIC ←"
       navAccentColor="#ffffff"
     >
       <div className="relative z-10 pt-32 pb-32 overflow-x-hidden">
@@ -136,7 +144,7 @@ export default function Project03PosterPage() {
             >
               <div className="flex justify-between">
                 <span className="opacity-40">PROJECT:</span>
-                <span className="text-white font-medium">{PROJECT_DATA.meta.titles[lang]}</span>
+                <span className="text-white font-medium text-right leading-snug whitespace-pre-line">{PROJECT_DATA.meta.titles[lang]}</span>
               </div>
               <div className="flex justify-between">
                 <span className="opacity-40">DATE:</span>
@@ -144,7 +152,14 @@ export default function Project03PosterPage() {
               </div>
               <div className="flex justify-between">
                 <span className="opacity-40">CLIENT:</span>
-                <span className="text-white">{PROJECT_DATA.meta.client}</span>
+                <a
+                  href={PROJECT_DATA.meta.clientLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white text-right truncate max-w-[180px] hover:opacity-70 transition-opacity underline underline-offset-2 decoration-white/30"
+                >
+                  {PROJECT_DATA.meta.clients[lang]}
+                </a>
               </div>
             </div>
             <div className="leading-relaxed tracking-wider space-y-4 font-light text-neutral-300">

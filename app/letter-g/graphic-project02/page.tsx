@@ -12,9 +12,9 @@ export default function Project02PosterPage() {
     tags: ["海报设计 / POSTER", "VISUAL IDENTITY"],
     meta: {
       titlePngSrc: "/photo/g/p02/title.png",
-      titles: { cn: "Project G02", en: "Project G02", jp: "Project G02" },
+      titles: { cn: "我们将如何生成，实践，记录咒术", en: "How Do We Generate, Practice, and Record Magic?", jp: "私たちはいかに呪術を、生成し、実践し、記録するのか" },
       projectName: "Project G2",
-      creationDate: "2025",
+      creationDate: "2025.10",
       client: "TBD",
     },
     descriptions: {
@@ -23,11 +23,11 @@ export default function Project02PosterPage() {
       jp: ["プロジェクトG2の詳細説明。", "詳細は追って追記予定。"],
     },
     mainPosters: [
-      "/photo/g/p02/gp002-001.png",
-      "/photo/g/p02/gp002-002.png",
+      "/photo/g/p02/gp002-001.jpg",
+      "/photo/g/p02/gp002-002.jpg",
     ],
     sketches: [
-      { id: 1, src: "/photo/g/p02/detail-01.jpg", width: 180, rotate: -8, top: "20px", left: "5%" },
+      { id: 1, src: "/photo/g/p02/detail-01.png", width: 180, rotate: -8, top: "20px", left: "5%" },
       { id: 2, src: "/photo/g/p02/detail-02.jpg", width: 220, rotate: 6, top: "0px", left: "40%" },
       { id: 3, src: "/photo/g/p02/detail-03.jpg", width: 160, rotate: -12, top: "40px", left: "70%" },
     ]
@@ -59,7 +59,6 @@ export default function Project02PosterPage() {
   return (
     <PageShell
       backHref="/letter-g"
-      backLabel="BACK TO GRAPHIC ←"
       navAccentColor="#ffffff"
     >
       <div className="relative z-10 pt-32 pb-32 overflow-x-hidden">
@@ -123,7 +122,7 @@ export default function Project02PosterPage() {
                 </span>
               ))}
             </div>
-            <div className="w-full max-w-[280px] h-auto select-none pointer-events-none my-4">
+            <div className="w-full max-w-[380px] h-auto select-none pointer-events-none my-4">
               <img
                 src={PROJECT_DATA.meta.titlePngSrc}
                 alt={PROJECT_DATA.meta.projectName}
@@ -136,7 +135,7 @@ export default function Project02PosterPage() {
             >
               <div className="flex justify-between">
                 <span className="opacity-40">PROJECT:</span>
-                <span className="text-white font-medium">{PROJECT_DATA.meta.titles[lang]}</span>
+                <span className="text-white font-medium text-right leading-snug">{PROJECT_DATA.meta.titles[lang]}</span>
               </div>
               <div className="flex justify-between">
                 <span className="opacity-40">DATE:</span>

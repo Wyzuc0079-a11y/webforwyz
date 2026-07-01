@@ -1,15 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useLanguage } from "@/app/lib/i18n";
 
 type PageShellProps = {
   children: React.ReactNode;
 
   // 返回按钮的链接地址，比如 "/" 或 "/letter-b"
   backHref: string;
-
-  // 返回按钮的文字，比如 "BACK TO 3D GALLERY ←" 或 "BACK TO BOOK INDEX ←"
-  backLabel: string;
 
   // 导航栏强调色，默认白色，可以每个界面传入不同颜色
   // 例如：navAccentColor="#FF6B00" 或 navAccentColor="#00BFFF"
@@ -19,10 +17,25 @@ type PageShellProps = {
 export default function PageShell({
   children,
   backHref,
-  backLabel,
-  navAccentColor = "#ffffff", // 默认白色
+  navAccentColor = "#ffffff",
 }: PageShellProps) {
   const router = useRouter();
+  const { lang } = useLanguage();
+
+  // 根据 backHref 自动生成三语返回文字
+  // backHref === "/" → 回到主页  |  backHref 以 "/letter-" 开头 → 回到3D画廊
+  const backLabel =
+    backHref === "/"
+      ? lang === "cn"
+        ? "← 回到主页"
+        : lang === "jp"
+          ? "← ホームに戻る"
+          : "← BACK TO HOME"
+      : lang === "cn"
+        ? "← 回到3D画廊"
+        : lang === "jp"
+          ? "← 3Dギャラリーに戻る"
+          : "← BACK TO 3D GALLERY";
 
   return (
     <main className="min-h-screen bg-[#1c1c1c] text-white relative select-none font-sans overflow-x-hidden">

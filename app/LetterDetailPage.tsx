@@ -17,7 +17,6 @@ export default function LetterDetailPage({ category, projectId, navAccentColor }
   return (
     <PageShell
       backHref={`/letter-${category.routeSuffix}`}
-      backLabel={`BACK TO ${category.navBackLabel} INDEX ←`}
       navAccentColor={navAccentColor}
     >
       <div className="relative z-10 pt-32 min-h-screen max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-12 pb-24">
