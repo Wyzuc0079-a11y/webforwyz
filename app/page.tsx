@@ -39,31 +39,13 @@ function BottomFooter() {
           <div className="flex items-center space-x-6 md:space-x-8 text-white/40 font-light">
             {/* 底部社交链接 ── 字号 007 注释级 */}
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/ctww004/"
               target="_blank"
               rel="noopener noreferrer"
               style={{ fontSize: "var(--fs-007)" }}
               className="hover:text-white transition-colors duration-300"
             >
               INSTAGRAM
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: "var(--fs-007)" }}
-              className="hover:text-white transition-colors duration-300"
-            >
-              X (TWITTER)
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: "var(--fs-007)" }}
-              className="hover:text-white transition-colors duration-300"
-            >
-              LINKEDIN
             </a>
             {/* TOP 按钮 ── 字号 008 最小字 */}
             <button
