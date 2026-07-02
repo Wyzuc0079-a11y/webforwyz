@@ -2,27 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ClientLayout from "../components/ClientLayout";
 
-import type { Metadata } from "next";
-import "./globals.css";
-import ClientLayout from "../components/ClientLayout";
-
 export const metadata: Metadata = {
   title: {
-    default: "ctww004 — Wu Yizhou / 吴艺舟 / 呉藝舟 Portfolio",
+    default: "ctww004",
     template: "%s | ctww004",
   },
   description:
-    "Wu Yizhou (吴艺舟 / 呉藝舟) — graphic design, typography, book design, exhibition, and studio practice portfolio.",
+    "Graphic design, typography, book design, exhibition, and studio practice portfolio.",
   keywords: [
-    "吴艺舟", "呉藝舟", "Wu Yizhou", "wuyizhou",
     "graphic design", "typography", "book design", "poster design",
-    "portfolio", "日本", "秋田", "design laboratory",
+    "吳藝舟", "吴艺舟", "Wu Yizhou",
+    "portfolio", "日本", "秋田", "design",
   ],
-  authors: [{ name: "Wu Yizhou / 吴艺舟 / 呉藝舟" }],
+  authors: [{ name: "ctww004" }],
   openGraph: {
-    title: "ctww004 — Wu Yizhou Portfolio",
+    title: "ctww004",
     description:
-      "Graphic design, typography, book design, exhibition, and studio practice by Wu Yizhou (吴艺舟 / 呉藝舟).",
+      "Graphic design, typography, book design, exhibition, and studio practice portfolio.",
     url: "https://ctww004.com",
     siteName: "ctww004",
     locale: "zh_CN",
